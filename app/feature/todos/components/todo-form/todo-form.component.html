@@ -1,0 +1,19 @@
+<div class="input-group mb-3">
+  <input
+  type="text"
+  class="form-control"
+  placeholder="Search or Add Your Task..."
+  [(ngModel)]="todo.task"
+  (change)="search()"
+  />
+  <div>
+    <button class="btn btn-outline-primary" type="button" (click)="search()">
+      <fa-icon [icon]="icons.search"></fa-icon>
+    </button>  
+  </div>  
+  <div>
+    <button class="btn btn-outline-primary" type="button" (click)="add()">
+      <fa-icon [icon]="icons.add"></fa-icon>
+    </button>  
+  </div>  
+</div>

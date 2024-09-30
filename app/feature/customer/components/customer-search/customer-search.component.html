@@ -1,0 +1,13 @@
+<div class="input-group mb-3 ">
+    <input
+      type="text"
+      class="form-control rounded-left border-secondary"  
+      placeholder="Search..."
+      [(ngModel)]="query"
+      (keydown.enter)="onSearch()"
+    />
+    <button class="btn btn-outline-secondary rounded-right border-secondary" type="button" (click)="onSearch()"> 
+      <fa-icon [icon]="icons.search"></fa-icon>
+    </button>
+  </div>
+  
