@@ -1,0 +1,85 @@
+<!-- <div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <app-todo></app-todo>
+    </div>
+    <div class="col-md-4">
+      <app-todo [title]="'Trash'" [forTrash]="true"></app-todo>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-4">
+      <app-customer-choice></app-customer-choice>
+    </div>
+    <div class="col-md-8">
+      <app-reservasi-create></app-reservasi-create>
+    </div>
+  </div>
+</div> -->
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-12">
+      <form #form="ngForm" (submit)="onSubmit()">
+        <div class="form-group mb-3">
+          <label>Email</label>
+          <input
+            class="form-control"
+            type="email"
+            #email="ngModel"
+            name="email"
+            ngModel
+            required
+            email
+          />
+          <div
+            *ngIf="!email.valid && (email.dirty || email.touched)"
+            class="text-helper text-danger"
+          >
+            <span *ngIf="email.errors!['required']">Email is required</span>
+            <span *ngIf="email.errors!['email']">Invalid email address</span>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label>Username</label>
+          <input
+            class="form-control"
+            type="text"
+            #username="ngModel"
+            name="username"
+            ngModel
+            required
+            [maxlength]="10"
+            [minlength]="5"
+            pattern="^[a-zA-Z]+$"
+          />
+          <div
+            *ngIf="!username.valid && (username.dirty || username.touched)"
+            class="text-helper text-danger"
+          >
+            <span *ngIf="username.errors!['required']">
+              Username is required
+            </span>
+            <span *ngIf="username.errors!['minlength']">
+              Username minimum length is
+              {{ username.errors!["minlength"].requiredLength }}, but actual
+              length is {{ username.errors!["minlength"].actualLength }}.
+            </span>
+            <span *ngIf="username.errors!['maxlength']">
+              Username maximum length is
+              {{ username.errors!["maxlength"].requiredLength }}, but actual
+              length is {{ username.errors!["maxlength"].actualLength }}.
+            </span>
+            <span *ngIf="username.errors!['pattern']"> Invalid username </span>
+          </div>
+        </div>
+        <button class="btn btn-primary" [disabled]="form.invalid" type="submit">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
